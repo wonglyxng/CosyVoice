@@ -24,7 +24,7 @@ RUN ldconfig /usr/local/cuda-$(echo $CUDA_VERSION | cut -d. -f1,2)/compat/
 
 WORKDIR /opt/CosyVoice
 
-RUN git clone --recursive https://github.com/wonglyxng/CosyVoice.git .
+RUN git clone --recursive https://github.com/wonglyxng/CosyVoice.git
 
 RUN cd CosyVoice && pip install -r requirements.txt -i https://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN cd CosyVoice/runtime/python/grpc && python3 -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. cosyvoice.proto
